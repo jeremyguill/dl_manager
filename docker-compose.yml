@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  video-downloader:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: video-downloader
+    volumes:
+      # Mount the current directory to /app inside the container
+      # This allows urls.txt to be read and downloaded files to be saved in the host directory
+      - .:/app
+    restart: unless-stopped
