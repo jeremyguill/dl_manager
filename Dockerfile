@@ -6,9 +6,9 @@ WORKDIR /app
 
 # Install yt-dlp and other dependencies
 # ffmpeg is needed by yt-dlp for video/audio processing
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    ffmpeg \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update
+RUN apt-get install -y --no-install-recommends ffmpeg
+RUN rm -rf /var/lib/apt/lists/*
 
 # Install yt-dlp using pip
 COPY requirements.txt .
